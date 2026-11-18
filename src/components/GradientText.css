@@ -1,0 +1,21 @@
+.gradient-text {
+  color: #6723ad;
+}
+
+@supports (background-clip: text) {
+  .gradient-text__content {
+    /* Give italic ink room to overhang without changing the text advance. */
+    padding-inline-end: .05em;
+    margin-inline-end: -.05em;
+    background-image: var(--gt-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@media (forced-colors: active), print {
+  .gradient-text__content {
+    background-image: none;
+    -webkit-text-fill-color: currentColor;
+  }
+}

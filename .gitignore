@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.playwright-mcp/
+
+.env
+.env.*
+!.env.example
+
+playwright-report/
+playwright-results/
+test-results/
+playwright/.cache/
+.cache/
+.npm/
+.vite/
+*.tsbuildinfo
+*.tmp
+.DS_Store
+
+# Local skill installation. Keep skills-lock.json under version control.
+.agents/skills/apple-design/
