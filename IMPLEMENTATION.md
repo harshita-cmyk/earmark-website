@@ -38,3 +38,20 @@ Use [PRODUCT.md](PRODUCT.md) for scope and claims and [DESIGN.md](DESIGN.md) for
 - Verify the outbound links from the release preview and proofread credits, terminology, and evidence claims.
 
 **Ready when:** The core journey works with keyboard, touch, and assistive technology, and every data insight can be reached without sound. Report accessibility against the scope actually tested.
+
+## Section 2 research example
+
+- Keep the one-year COIN chart from the Apple Stocks recording in view through all five beats. The frame shows the time labels and the USD axis. Treat its tick marks as scale references. Exact sampled prices and timestamp-to-audio mappings are not available.
+- The local AAC excerpt was stream-copied from `Stock_app_audiograph.mov` at approximately 18.92–28.74 seconds. The chart image is a crop of the 25-second frame. The waveform is the peak envelope of the decoded samples and shows audio progress independently of the chart.
+- Keep the sighted novice observations separate from the blind and low-vision interview. The preview uses paraphrases. Add quotations only once the wording and permission for public use are verified.
+
+### COIN chart handoff for Section 3
+
+- Keep the verified 1132 × 650 crop in `public/research/apple-stocks-coin.webp` as the visual reference. The crop uses the frame at about 25 seconds from the original research recording, `Stock_app_audiograph.mov`. `public/research/earmark-coin.webp` recolors that crop in place. It contains the same geometry.
+- `CoinChart` and `CoinOverlay` in `src/components/ResearchStory.tsx` own image placement and annotations in the crop’s coordinate space. `AppleAudioGraph` owns playback of `public/research/apple-stocks-voiceover.m4a`. Its waveform is an audio amplitude envelope, independent of the chart coordinates.
+- The recording verifies the ticker, one-year span, USD scale marks, and labeled months. Obtain the original ordered observations and dates, confirm the sampling and price basis against the recording, then project the verified points against the same axis bounds. Check that the overlay preserves the original shape before using those observations to calculate piano pitches. Carry the source units, timestamps, interpolation policy, and tested pitch mapping alongside the data.
+- Keep showing the source image while the original observation series is unavailable. Pixel coordinates support visual emphasis only. Avoid reading precise observations or timestamps from the image or estimating them from the Apple audio. Any separate teaching dataset needs a clear label and its own chart.
+
+### Media attribution and publication
+
+The chart is credited to Apple Stocks, and the excerpt to Apple Stocks and VoiceOver, in the interface. The original QuickTime recording is kept outside Git. The local commit contains the research audio excerpt and the original and recolored chart crops. Public redistribution clearance for those assets has not been verified. Confirm clearance and any required credits before publishing this commit. [Apple rights and permissions](https://www.apple.com/legal/intellectual-property/).

@@ -1,0 +1,64 @@
+.apple-audio {
+  display: grid;
+  min-width: 0;
+  gap: .5rem;
+  margin-top: 1.25rem;
+  padding-block: .875rem .25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.story-beat .apple-audio-label,
+.story-beat .apple-audio-description,
+.story-beat .apple-audio-state { margin: 0; font-size: .875rem; }
+.story-beat .apple-audio-label { color: var(--ink); font-weight: 600; }
+
+.apple-audio-wave {
+  display: block;
+  width: 100%;
+  height: 2.125rem;
+  margin-block: .25rem;
+  stroke: var(--muted);
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.apple-audio-wave .apple-audio-elapsed { stroke: var(--focus); stroke-width: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .apple-audio-elapsed { display: none; }
+}
+
+.apple-audio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .75rem;
+}
+
+.apple-audio-controls button {
+  min-height: 44px;
+  padding: .5rem .75rem;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  font: 600 .875rem/1.3 "Instrument Sans", system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.apple-audio-play { color: var(--paper); background: var(--ink); }
+.apple-audio-controls .apple-audio-restart {
+  border-color: transparent;
+  color: var(--ink);
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.apple-audio-controls button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+@media (max-width: 51.99rem) {
+  .apple-audio-controls button { scroll-margin-top: 55svh; }
+}
+
+@media (forced-colors: active) {
+  .apple-audio-controls button { border-color: ButtonText; }
+  .apple-audio-wave, .apple-audio-wave .apple-audio-elapsed { stroke: CanvasText; }
+}

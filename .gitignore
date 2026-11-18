@@ -19,3 +19,6 @@ playwright/.cache/
 
 # Local skill installation. Keep skills-lock.json under version control.
 .agents/skills/apple-design/
+
+# Impeccable browser comparison state
+.impeccable/live/

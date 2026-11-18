@@ -1,6 +1,7 @@
 import { StrictMode, type MouseEvent } from 'react';
 import { createRoot } from 'react-dom/client';
 import GradientText from './components/GradientText';
+import ResearchStory from './components/ResearchStory';
 import './styles.css';
 
 const prototype = 'https://earmark-pi.vercel.app/';
@@ -90,6 +91,7 @@ function App() {
           </div>
           <GraphMotif />
         </section>
+        <ResearchStory />
       </main>
     </>
   );

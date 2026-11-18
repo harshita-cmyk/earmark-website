@@ -1,0 +1,233 @@
+.research-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  gap: 1.5rem;
+  border-top: 1px solid var(--rule);
+  padding-block: 2rem 4rem;
+}
+
+.story-chart {
+  align-self: start;
+  min-width: 0;
+  background: var(--paper);
+}
+
+.story-figure { margin: 0; }
+
+.story-figure figcaption {
+  display: grid;
+  gap: .25rem;
+  margin-bottom: .625rem;
+  line-height: 1.4;
+}
+
+.story-figure figcaption span {
+  color: var(--muted);
+  font-size: .875rem;
+  max-width: 55ch;
+}
+
+.story-beat {
+  display: grid;
+  align-content: center;
+  min-block-size: 48svh;
+  padding-block: 1.5rem;
+}
+
+.story-beat + .story-beat { border-top: 1px solid var(--rule); }
+
+.story-beat h2, .story-beat h3 {
+  font: 400 clamp(2.25rem, 4vw, 3.25rem)/1.06 "Instrument Serif", Georgia, serif;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+
+.story-beat p {
+  margin: .875rem 0 0;
+  max-width: 54ch;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 1.0625rem;
+}
+
+.story-evidence { margin-top: 1.5rem; }
+.story-evidence h4 { margin: 0; font-size: 1rem; }
+.story-evidence p { margin-top: .375rem; }
+@media (max-width: 51.99rem) and (min-height: 42rem) and (prefers-reduced-motion: no-preference) {
+  .story-chart {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-block: .75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+}
+
+@media (min-width: 52rem) {
+  .research-story {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 7vw, 6rem);
+    padding-block: 3rem 5rem;
+  }
+
+  .story-beat { min-block-size: 61svh; }
+}
+
+@media (min-width: 52rem) and (min-height: 35rem) and (prefers-reduced-motion: no-preference) {
+  .story-chart { position: sticky; top: 13svh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-beat { min-block-size: auto; }
+}
+
+.research-story.research-living {
+  --paper: #e0f0e9;
+  --ink: #112923;
+  --muted: #365a50;
+  --rule: #adcabe;
+  --focus: #144f59;
+  color: var(--ink);
+  background: var(--paper);
+  padding-inline: clamp(1rem, 4vw, 4rem);
+  padding-block: 2.5rem 4rem;
+}
+.research-living .story-chart { border-top: 2px solid #4b7276; }
+.research-living .story-figure { padding-block: .75rem; }
+.research-living .story-figure figcaption { margin-bottom: .875rem; }
+.research-living .story-figure figcaption strong { font: 400 1.5rem/1.1 "Instrument Serif", Georgia, serif; }
+.research-living .story-beat {
+  min-block-size: 61svh;
+  padding-block: 2rem;
+}
+.research-living .story-beat h2, .research-living .story-beat h3 {
+  font-size: clamp(2.625rem, 4.8vw, 4.5rem);
+  max-width: 15ch;
+}
+.research-living .story-evidence { padding-inline-start: 1rem; border-inline-start: 1px solid #4b7276; }
+.research-living .gradient-text__content {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--focus);
+}
+@media (min-width: 52rem) {
+  .research-story.research-living { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); }
+}
+@media (max-width: 51.99rem) {
+  .research-living .story-beat { min-block-size: 52svh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .research-living .story-beat { min-block-size: auto; }
+}
+@media (forced-colors: active) {
+  .research-living .gradient-text__content { color: CanvasText; }
+}
+
+.coin-chart-image {
+  position: relative;
+  width: min(100%, calc(38svh * 1132 / 650));
+}
+
+.coin-chart-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.coin-chart-brand {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-stage="5"] .coin-chart-brand { opacity: 1; }
+
+/* Overlay coordinates follow the original screenshot, independent of playback. */
+.coin-chart-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: #f4eaff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  pointer-events: none;
+}
+.coin-chart-overlay .coin-region { fill: rgb(244 234 255 / .07); }
+.coin-chart-overlay .coin-start-region { fill: rgb(244 234 255 / .07); stroke: none; }
+.coin-chart-overlay .coin-guide { stroke-dasharray: 12 9; }
+[data-stage="5"] .coin-price-cue { stroke: #c9a6ff; }
+[data-stage="5"] .coin-time-cue { stroke: #85e2e7; }
+[data-stage="5"] .coin-start-region { fill: rgb(139 178 255 / .09); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .coin-chart-brand { transition: opacity .48s ease-in-out; }
+  .coin-chart-overlay { animation: coin-cue-in .24s ease-out; }
+}
+
+@keyframes coin-cue-in { from { opacity: .2; } }
+
+.story-questions {
+  display: grid;
+  width: min(100%, 32rem);
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.story-questions li { border-block-end: 1px solid var(--rule); }
+.story-questions button {
+  width: 100%;
+  min-height: 44px;
+  padding: .75rem .25rem;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.story-questions button[aria-pressed="true"] {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: .25em;
+}
+.story-questions button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.story-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (max-width: 51.99rem) {
+  .story-questions button { scroll-margin-top: 55svh; }
+}
+@media (forced-colors: active) {
+  .coin-chart-overlay { stroke: #fff; forced-color-adjust: none; }
+  [data-stage="5"] .coin-chart-overlay :is(.coin-price-cue, .coin-time-cue, .coin-region) { stroke: #fff; }
+}
+
+.coin-chart-note {
+  max-width: 50ch;
+  min-block-size: 4.2em;
+  margin: .75rem 0 0;
+  padding-inline-start: .625rem;
+  border-inline-start: 1px solid color-mix(in srgb, #165d60 90%, var(--rule));
+  color: var(--muted);
+  font-size: .875rem;
+  line-height: 1.4;
+}
+
+@media (forced-colors: active) {
+  .coin-chart-note { border-inline-start-color: CanvasText; }
+}

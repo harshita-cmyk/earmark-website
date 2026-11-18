@@ -33,7 +33,7 @@ The reviewed sources document implementation and exercises. Study methods, parti
 | Section | Visitor question | Material |
 | --- | --- | --- |
 | Opening | Why should understanding a graph depend on sight? | One direct question, a short description of Earmark, and a link to the example. |
-| Interactive example | What happens when data becomes something I can hear? | One short, labeled illustrative series with a rise, a dip, and a recovery. Provide piano playback, a plot, a trend description, and an exact-value view. |
+| Motivating problem | What can I learn by listening to a graph? | The one-year COIN chart and its Apple VoiceOver audio graph from the research recording. Use the same chart to distinguish hearing change from understanding direction, magnitude, and timing. |
 | How it works | What am I hearing? | Explain playback order, pitch steps, and the cues the full prototype offers for calibration and reading values. |
 | Research notes | What did building Earmark surface? | Explain documented choices such as calibrating pitch, teaching shapes before asking for values, and exposing values on demand. Add attributed findings when available. |
 | Try the prototype | Where can I go further? | Describe Tutorial, Test, and Playground and link to the live prototype and source. |
@@ -48,6 +48,6 @@ Use the supplied lowercase wordmark and multicolor line as the source of identit
 
 - Keep the showcase in its own repository. The full Tutorial, Test, and Playground belong to the original prototype.
 - Plan for a mobile-first public page with a WCAG 2.2 AA target, user-initiated sound, equivalent text and data, and reduced-motion support.
-- The embedded example is a proposed teaching excerpt. Label its dataset and any simplified mapping so visitors can distinguish it from the full prototype protocol.
+- The Apple Stocks research excerpt introduces an existing audio graph. Distinguish it from Earmark’s prototype and use source-confirmed chart labels and values.
 - The uploaded logo is the current visual reference. The owner will add the production image under `public/images/` during setup.
 - Framework and hosting remain open. Team credits, asset licensing for the piano audio, and any publishable study results need verification before launch.
