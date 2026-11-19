@@ -21,7 +21,8 @@
 
 :root {
   color-scheme: light;
-  --paper: #fff;
+  --hero-original-paper: #fff;
+  --paper: var(--hero-original-paper);
   --ink: #121212;
   --muted: #505050;
   --rule: #e1dfdc;

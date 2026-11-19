@@ -55,3 +55,11 @@ Use [PRODUCT.md](PRODUCT.md) for scope and claims and [DESIGN.md](DESIGN.md) for
 ### Media attribution and publication
 
 The chart is credited to Apple Stocks, and the excerpt to Apple Stocks and VoiceOver, in the interface. The original QuickTime recording is kept outside Git. The local commit contains the research audio excerpt and the original and recolored chart crops. Public redistribution clearance for those assets has not been verified. Confirm clearance and any required credits before publishing this commit. [Apple rights and permissions](https://www.apple.com/legal/intellectual-property/).
+
+## Sections 3 and 4 preview
+
+- Section 3 uses the React Bits Sliced Waves TS-CSS source with a five-color static SVG fallback. Motion runs briefly while in view, and the effect represents atmosphere independently of the Apple or Earmark audio.
+- Section 4 labels its switch from the COIN research screenshot to the prototype’s `stock` graph. No verified point series for the one-year COIN recording was found. The 20 sample prices and the note sequence come from the prototype source.
+- The website uses the prototype’s Salamander piano sources, unit output gain, pitch mapping, six-second sequence, five-percent note gap, and five 450 ms reference notes. The transport adds pause and resume using the audio clock. Resuming starts future attacks at their original relative times and rejoins any interrupted samples at their saved phase and release gain.
+- The introduction uses browser speech synthesis with an English voice at 0.95 rate. Graph title, axes, extrema, starting value, pitch-step units, reference notes, and duration remain in the protocol. Browsers without a speech voice can play the reference notes and read the introduction. A future human recording could cover this specific introduction while leaving dynamic pause values available as text or optional browser speech.
+- Piano recordings are fetched from the prototype’s original Tone.js Salamander URLs. Credit Alexander Holm and retain the sample distribution’s [CC BY 3.0 attribution](https://github.com/Tonejs/audio/tree/master/salamander).

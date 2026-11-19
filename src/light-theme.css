@@ -1,0 +1,70 @@
+:root {
+  --theme-paper: #faf9f6;
+  --theme-surface: #f1efea;
+  --theme-ink: #1b1824;
+  --theme-muted: #514c58;
+  --theme-accent: #613693;
+  --theme-bright-violet: #8435bd;
+  --theme-rule: #d4d0d7;
+  --theme-control-border: #83778f;
+  --brand-chart-blue: #3466f4;
+  --brand-chart-violet: #8c43ed;
+  --brand-chart-pink: #c13ba1;
+  --brand-chart-cyan: #008c9c;
+  --brand-chart-green: #378a49;
+  color-scheme: light;
+  --paper: var(--theme-paper);
+  --ink: var(--theme-ink);
+  --muted: var(--theme-muted);
+  --rule: var(--theme-rule);
+  --focus: var(--theme-accent);
+  --section-gutter: max(clamp(1rem, 5vw, 4.5rem), (100% - 75rem) / 2);
+  --theme-gradient: linear-gradient(105deg, #7132c3, #a132b1, #7645d9);
+}
+
+::selection { background: var(--theme-accent); color: var(--theme-paper); }
+.brand img { mix-blend-mode: multiply; }
+.gradient-text { color: var(--theme-accent); }
+@media (forced-colors: none) {
+  .gradient-text__content { background-image: var(--theme-gradient); }
+}
+.primary-link:hover { background: var(--theme-accent); }
+.research-link:hover { color: var(--theme-accent); }
+
+.research-story.research-living {
+  padding-inline: calc(var(--section-gutter) + clamp(1rem, 4vw, 4rem));
+  --paper: var(--theme-surface);
+  --ink: var(--theme-ink);
+  --muted: var(--theme-muted);
+  --rule: var(--theme-rule);
+  --focus: var(--theme-accent);
+}
+.research-story.research-living .gradient-text__content {
+  background: none;
+  color: var(--theme-bright-violet);
+  -webkit-text-fill-color: currentColor;
+}
+
+.research-story.research-living .story-chart { border-top-color: var(--theme-accent); }
+.research-living :is(.story-evidence, .story-chart figcaption) { border-inline-start-color: var(--theme-rule); }
+
+#main .prototype-guide {
+  padding-inline: calc(var(--section-gutter) + clamp(1rem, 4vw, 4rem));
+  --guide-paper: var(--theme-paper);
+  --guide-ink: var(--theme-ink);
+  --guide-muted: var(--theme-muted);
+  --guide-rule: var(--theme-control-border);
+  --guide-mark: var(--theme-bright-violet);
+  --guide-focus: var(--theme-accent);
+  --guide-active: var(--theme-bright-violet);
+}
+.coin-chart-note { border-inline-start-color: var(--theme-accent); }
+.story-questions button:hover { text-decoration: underline; text-underline-offset: .25em; }
+.story-questions button[aria-pressed="true"] { color: var(--theme-accent); }
+
+@media (forced-colors: active) {
+  .hero .gradient-text__content,
+  .research-story.research-living .gradient-text__content { color: CanvasText; }
+  .guide-line, .guide-point, .guide-note path, :is(.guide-reference, .guide-active) { stroke: CanvasText; }
+  .guide-note { fill: CanvasText; }
+}

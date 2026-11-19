@@ -1,8 +1,12 @@
-import { StrictMode, type MouseEvent } from 'react';
+import { lazy, StrictMode, Suspense, type MouseEvent } from 'react';
 import { createRoot } from 'react-dom/client';
 import GradientText from './components/GradientText';
 import ResearchStory from './components/ResearchStory';
 import './styles.css';
+import './light-theme.css';
+
+const EarmarkReveal = lazy(() => import('./components/transformation/EarmarkReveal'));
+const PrototypeGuide = lazy(() => import('./components/PrototypeGuide'));
 
 const prototype = 'https://earmark-pi.vercel.app/';
 const researchReadme = 'https://github.com/harshita-cmyk/earmark#readme';
@@ -36,11 +40,11 @@ function GraphMotif() {
     <svg className="graph-motif" viewBox="0 0 1200 202" preserveAspectRatio="none" aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id="graph-ink" gradientUnits="userSpaceOnUse" x1="14" x2="1186">
-          <stop offset="0" stopColor="#245de9" />
-          <stop offset=".36" stopColor="#7935dc" />
-          <stop offset=".55" stopColor="#bf32a5" />
-          <stop offset=".71" stopColor="#08a5ba" />
-          <stop offset="1" stopColor="#40a841" />
+          <stop offset="0" stopColor="var(--brand-chart-blue)" />
+          <stop offset=".36" stopColor="var(--brand-chart-violet)" />
+          <stop offset=".55" stopColor="var(--brand-chart-pink)" />
+          <stop offset=".71" stopColor="var(--brand-chart-cyan)" />
+          <stop offset="1" stopColor="var(--brand-chart-green)" />
         </linearGradient>
         <mask id="graph-draw" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="202">
           <path className="graph-reveal" d={contour} pathLength="1" fill="none" stroke="white" strokeWidth="24" />
@@ -49,10 +53,10 @@ function GraphMotif() {
       <path d="M 14 156 V 201 M 442 39 V 201 M 831 176 V 201 M 1186 14 V 201 M 14 201 H 1186" className="graph-guides" />
       <path d={contour} className="graph-contour" mask="url(#graph-draw)" vectorEffect="non-scaling-stroke" />
       <g className="graph-points">
-        <circle cx="14" cy="156" r="5.5" stroke="#245de9" />
-        <circle cx="442" cy="39" r="5.5" stroke="#7935dc" />
-        <circle cx="831" cy="176" r="5.5" stroke="#08a5ba" />
-        <circle cx="1186" cy="14" r="5.5" stroke="#40a841" />
+        <circle cx="14" cy="156" r="5.5" stroke="var(--brand-chart-blue)" />
+        <circle cx="442" cy="39" r="5.5" stroke="var(--brand-chart-violet)" />
+        <circle cx="831" cy="176" r="5.5" stroke="var(--brand-chart-cyan)" />
+        <circle cx="1186" cy="14" r="5.5" stroke="var(--brand-chart-green)" />
       </g>
     </svg>
   );
@@ -70,28 +74,32 @@ function App() {
           <a href={prototype}>Prototype <OutboundArrow /></a>
         </nav>
       </header>
-      <main className="frame" id="main" tabIndex={-1}>
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-layout">
-            <div>
-              <p className="eyebrow">Earmark / Enabling Novel Data Interactions</p>
-              <h1 id="hero-title">
-                What does a graph <span className="headline-phrase"><GradientText colors={['#5925a9', '#9429cf', '#6432c3']}><em>sound</em></GradientText> like?</span>
-              </h1>
-            </div>
-            <div className="hero-intro">
-              <p>We've spent centuries learning to visualize graphs. Earmark asks what happens when we begin to listen.</p>
-              <div className="hero-actions">
-                <a className="primary-link" href={prototype}>
-                  Explore Earmark <OutboundArrow />
-                </a>
-                <ResearchLink />
+      <main id="main" tabIndex={-1}>
+        <div className="frame">
+          <section className="hero" aria-labelledby="hero-title">
+            <div className="hero-layout">
+              <div>
+                <p className="eyebrow">Earmark / Enabling Novel Data Interactions</p>
+                <h1 id="hero-title">
+                  What does a graph <span className="headline-phrase"><GradientText colors={['#5925a9', '#9429cf', '#6432c3']}><em>sound</em></GradientText> like?</span>
+                </h1>
+              </div>
+              <div className="hero-intro">
+                <p>We've spent centuries learning to visualize graphs. Earmark asks what happens when we begin to listen.</p>
+                <div className="hero-actions">
+                  <a className="primary-link" href={prototype}>
+                    Explore Earmark <OutboundArrow />
+                  </a>
+                  <ResearchLink />
+                </div>
               </div>
             </div>
-          </div>
-          <GraphMotif />
-        </section>
+            <GraphMotif />
+          </section>
+        </div>
         <ResearchStory />
+        <Suspense fallback={null}><EarmarkReveal /></Suspense>
+        <Suspense fallback={null}><PrototypeGuide /></Suspense>
       </main>
     </>
   );

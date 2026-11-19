@@ -1,0 +1,16 @@
+.earmark-reveal {
+  position: relative;
+  --wave-band-height: clamp(17rem, 36svh, 22rem);
+  block-size: var(--wave-band-height);
+  overflow: clip;
+  background: linear-gradient(var(--theme-surface), var(--theme-paper));
+}
+
+.earmark-reveal .earmark-reveal-waves {
+  /* Keep the original projection and trim the empty top of its canvas. */
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  block-size: 600px;
+  mask-image: linear-gradient(to bottom, transparent calc(600px - var(--wave-band-height)), #000 calc(600px - var(--wave-band-height) + 1.5rem), #000 calc(100% - 1rem), transparent);
+}

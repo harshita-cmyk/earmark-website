@@ -93,7 +93,7 @@
   color: var(--ink);
   background: var(--paper);
   padding-inline: clamp(1rem, 4vw, 4rem);
-  padding-block: 2.5rem 4rem;
+  padding-block: 2.5rem clamp(1rem, 2.5vw, 2rem);
 }
 .research-living .story-chart { border-top: 2px solid #4b7276; }
 .research-living .story-figure { padding-block: .75rem; }
@@ -119,8 +119,13 @@
 @media (max-width: 51.99rem) {
   .research-living .story-beat { min-block-size: 52svh; }
 }
+.research-living .story-beat:last-child {
+  min-block-size: 40svh;
+  padding-block-end: 1rem;
+}
 @media (prefers-reduced-motion: reduce) {
-  .research-living .story-beat { min-block-size: auto; }
+  .research-living .story-beat,
+  .research-living .story-beat:last-child { min-block-size: auto; }
 }
 @media (forced-colors: active) {
   .research-living .gradient-text__content { color: CanvasText; }
